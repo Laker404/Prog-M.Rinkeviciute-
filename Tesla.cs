@@ -16,7 +16,7 @@ namespace TeslaRental
             Car.Add("Tesla Model S", 20.0, 0.5); 
 
             Console.WriteLine("Registering a new client...");
-            Client.Register("John Doe", "john.doe@example.com");
+            Client.Register("Anna Berziņa", "aberzina@inbox.lv");
 
             var client = Client.GetByEmail("john.doe@example.com");
             Console.WriteLine($"Client ID: {client.ID}, Name: {client.Name}");
