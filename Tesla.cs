@@ -9,27 +9,22 @@ namespace TeslaRental
     {
         static void Main(string[] args)
         {
-            Database.Initialize(); // Создаем таблицы при запуске
+            Database.Initialize(); 
             Console.WriteLine("Tesla Rental Backend initialized.");
 
-            // Добавляем машину
             Console.WriteLine("Adding a new car...");
-            Car.Add("Tesla Model S", 20.0, 0.5); // Часовая ставка: $20, км ставка: $0.5
+            Car.Add("Tesla Model S", 20.0, 0.5); 
 
-            // Добавляем клиента
             Console.WriteLine("Registering a new client...");
             Client.Register("John Doe", "john.doe@example.com");
 
-            // Получаем ID клиента по Email
             var client = Client.GetByEmail("john.doe@example.com");
             Console.WriteLine($"Client ID: {client.ID}, Name: {client.Name}");
 
-            // Получаем первую машину из базы
             var cars = Car.GetAll();
             var firstCar = cars[0];
             Console.WriteLine($"Car ID: {firstCar.ID}, Model: {firstCar.Model}");
 
-            // Начинаем аренду
             Console.WriteLine("Starting rental...");
             Rental.StartRental(client.ID, firstCar.ID);
 
